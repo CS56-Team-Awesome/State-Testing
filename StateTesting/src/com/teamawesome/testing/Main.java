@@ -10,17 +10,21 @@ import com.jme3.math.Vector3f;
 import com.jme3.renderer.RenderManager;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
+import com.jme3.system.AppSettings;
 
 /**
  * test
  * @author Hasen
  */
 public class Main extends SimpleApplication {
-
+    
     public static void main(String[] args) {
         Main app = new Main();
+        settings.
         app.start();
     }
+    
+    
 
     @Override
     public void simpleInitApp() {
