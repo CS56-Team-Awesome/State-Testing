@@ -90,10 +90,10 @@ public class PausedState extends AbstractAppState {
                  
                  }
                  if ("Drop Block".equals(name) && !keyPressed) System.out.println("Drop pushed");
-                 if ("Move Block Left".equals(name) && !keyPressed)   rootNode.getChild("A Textured Box").setLocalTranslation(x -= 2.5, y, 0);
-                 if ("Move Block Right".equals(name) && !keyPressed)   rootNode.getChild("A Textured Box").setLocalTranslation(x += 2.5, y, 0);
-                 if ("Move Block Up".equals(name) && !keyPressed)   rootNode.getChild("A Textured Box").setLocalTranslation(x, y += 2.5, 0);
-                 if ("Move Block Down".equals(name) && !keyPressed)   rootNode.getChild("A Textured Box").setLocalTranslation(x, y -= 2.5, 0);
+                 if ("Move Block Left".equals(name) && !keyPressed)   rootNode.getChild("blockNode").setLocalTranslation(x -= 2.5, y, 0);
+                 if ("Move Block Right".equals(name) && !keyPressed)   rootNode.getChild("blockNode").setLocalTranslation(x += 2.5, y, 0);
+                 if ("Move Block Up".equals(name) && !keyPressed)   rootNode.getChild("blockNode").setLocalTranslation(x, y += 2.5, 0);
+                 if ("Move Block Down".equals(name) && !keyPressed)   rootNode.getChild("blockNode").setLocalTranslation(x, y -= 2.5, 0);
               }
             };
         
