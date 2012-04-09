@@ -31,10 +31,10 @@ public class PausedState extends AbstractAppState {
     private InputManager      inputManager;
     private ViewPort          viewPort;
     private Node              guiNode;
-    private AppSettings       s;
+    private AppSettings       settings;
 
-    public void setS(AppSettings s) {
-        this.s = s;
+    public void setSettings(AppSettings s) {
+        this.settings = s;
     }
     
 
@@ -70,9 +70,9 @@ public class PausedState extends AbstractAppState {
             guiNode.detachAllChildren();
             Picture pic = new Picture("HUD Picture");
             pic.setImage(assetManager, "Interface/background.png", true);
-            pic.setWidth(s.getWidth()/2);
-            pic.setHeight(s.getHeight()/2);
-            pic.setPosition(s.getWidth()/4, s.getHeight()/4);
+            pic.setWidth(settings.getWidth()/2);
+            pic.setHeight(settings.getHeight()/2);
+            pic.setPosition(settings.getWidth()/4, settings.getHeight()/4);
             guiNode.attachChild(pic);
             
 

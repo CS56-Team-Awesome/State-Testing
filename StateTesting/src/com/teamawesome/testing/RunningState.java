@@ -13,6 +13,7 @@ import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
 import com.jme3.math.Vector3f;
+import com.jme3.renderer.Camera;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
@@ -32,10 +33,17 @@ public class RunningState extends AbstractAppState {
     private AppStateManager   stateManager;
     private InputManager      inputManager;
     private ViewPort          viewPort;
+    private Camera            cam;
     
 
+    
     public RunningState() {
     }
+
+    public void setCam(Camera cam) {
+        this.cam = cam;
+    }
+    
     
     
     @Override
@@ -53,18 +61,10 @@ public class RunningState extends AbstractAppState {
         this.inputManager = this.app.getInputManager();
         this.viewPort     = this.app.getViewPort();
         
-        /** A simple textured cube. */ 
-        Box boxshape1 = new Box(Vector3f.ZERO, 1f,1f,1f); 
-        Geometry cube = new Geometry("A Textured Box", boxshape1); 
-        Material mat_stl = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md"); 
-        Texture tex_ml = assetManager.loadTexture("Interface/background.png"); 
-        mat_stl.setTexture("ColorMap", tex_ml); 
-        cube.setMaterial(mat_stl);  
-        rootNode.attachChild(cube);
-        /*------------------------------------*/
         
+        Block block = new Block();
         
-        //cam.setLocation(new Vector3f(0,0,50));
+        cam.setLocation(new Vector3f(0,0,50));
         stateManager.getState(RunningState.class).setEnabled(true);
         System.out.println("RunningState Initialized");
         

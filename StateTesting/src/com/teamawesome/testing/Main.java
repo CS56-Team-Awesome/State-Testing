@@ -12,6 +12,9 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
 import com.jme3.system.AppSettings;
 import com.jme3.system.JmeContext;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.Set;
 
 /**
  * test
@@ -24,18 +27,24 @@ public class Main extends SimpleApplication {
         Main app = new Main();
         //app.setShowSettings(false);
         //app.settings.setFullscreen(true);
+        
+            
         app.start();
     }
     
     
     @Override
     public void start(){
-        AppSettings settings = new AppSettings(true);
-        settings.setResolution(1440, 900);
-        settings.setTitle("BlockBlock");
-        settings.setFullscreen(true);
+        // Get the default toolkit
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        // Get the current screen size
+        Dimension scrnsize = toolkit.getScreenSize();
         
-        //setShowSettings(false);
+        AppSettings settings = new AppSettings(true);
+        settings.setResolution((int)(scrnsize.width/1.2), (int)(scrnsize.height/1.2));
+        settings.setTitle("BlockBlock");
+        //settings.setFullscreen(true);
+        setShowSettings(false);
         setSettings(settings);
         
         super.start();
@@ -55,8 +64,8 @@ public class Main extends SimpleApplication {
      
         stateManager.attach(new RunningState());
         stateManager.attach(new PausedState());
-        stateManager.getState(PausedState.class).setS(settings);
-        
+        stateManager.getState(PausedState.class).setSettings(settings);
+        stateManager.getState(RunningState.class).setCam(cam);
         
     }
 
