@@ -69,7 +69,7 @@ public class RunningState extends AbstractAppState {
                          break;
             case Green: mat_stl.setColor("Color", ColorRGBA.Green);
                         break;
-            case Grey: mat_stl.setColor("Color", ColorRGBA.DarkGray);
+            case Grey: mat_stl.setColor("Color", ColorRGBA.Gray);
                        break;
             case Orange: mat_stl.setColor("Color", ColorRGBA.Orange);
                          break;
@@ -111,7 +111,7 @@ public class RunningState extends AbstractAppState {
             blockList.add(makeCube(i, blockNode));
         }
         for (int i =0; i < blockList.size(); i++){
-            blockList.get(i).move(i+i, i+1, 0);
+            blockList.get(i).move(i+i, i+1, 50);
         }
     }
 

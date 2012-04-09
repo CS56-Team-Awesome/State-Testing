@@ -69,7 +69,7 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
             case idleState:
                 break;
             case playState:
-                spatial.scale(1.2f);
+                spatial.move(0,0,-50);
                 state = BlockState.idleState;
                 break;
         }
