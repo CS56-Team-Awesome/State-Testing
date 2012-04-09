@@ -103,6 +103,7 @@ public class RunningState extends AbstractAppState {
         ActionListener actionListener = new ActionListener() {
             float x = 0;
             float y = 0;
+            int i = 0;
             
             public void onAction(String name, boolean keyPressed, float tpf) {
                  if ("Pause Game".equals(name) && !keyPressed) {
@@ -114,9 +115,10 @@ public class RunningState extends AbstractAppState {
                      
                  }
                  if ("Drop Block".equals(name) && !keyPressed) {
-                     Spatial bc = rootNode.getChild("Block1");
+                     Spatial bc = rootNode.getChild("Block"+(i%10));
                      if(bc != null)
                         bc.getControl(BlockControl.class).setState(BlockControl.BlockState.playState);
+                     i++;
                  }
                  if ("Move Block Left".equals(name) && !keyPressed)   rootNode.getChild("blockNode").setLocalTranslation(x -= 2.5, y, 0);
                  if ("Move Block Right".equals(name) && !keyPressed)   rootNode.getChild("blockNode").setLocalTranslation(x += 2.5, y, 0);
