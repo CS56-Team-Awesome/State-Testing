@@ -12,6 +12,7 @@ import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
+import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.ViewPort;
@@ -52,11 +53,31 @@ public class RunningState extends AbstractAppState {
         /** A simple textured cube. */ 
         Box boxshape1 = new Box(Vector3f.ZERO, 1f,1f,1f); 
         Geometry cube = new Geometry("Block"+index, boxshape1); 
-        Material mat_stl = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md"); 
-        Texture tex_ml = assetManager.loadTexture("Interface/background.png"); 
-        mat_stl.setTexture("ColorMap", tex_ml); 
+        Material mat_stl = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");  
         cube.setMaterial(mat_stl);
         cube.addControl(new BlockControl());
+        
+        switch(cube.getControl(BlockControl.class).color)
+        {
+            case Red: mat_stl.setColor("Color", ColorRGBA.Red);  
+                      break;
+            case Blue: mat_stl.setColor("Color", ColorRGBA.Blue);
+                       break;
+            case Black: mat_stl.setColor("Color", ColorRGBA.Black);
+                        break;
+            case Yellow: mat_stl.setColor("Color", ColorRGBA.Yellow);
+                         break;
+            case Green: mat_stl.setColor("Color", ColorRGBA.Green);
+                        break;
+            case Grey: mat_stl.setColor("Color", ColorRGBA.DarkGray);
+                       break;
+            case Orange: mat_stl.setColor("Color", ColorRGBA.Orange);
+                         break;
+               
+        }
+        //Texture tex_ml = assetManager.loadTexture("Interface/background.png");
+        //mat_stl.setTexture("ColorMap", tex_ml);
+       
         n.attachChild(cube);
         return cube;
         /*------------------------------------*/

@@ -23,8 +23,36 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
     protected enum Color {Red, Blue, Black, Yellow, Green, Grey, Orange};
     protected Color color;
     
+    static Color i = Color.Red;
+    
     public BlockControl(){
         state = BlockState.idleState;
+        switch(i)
+        {
+            case Red: color = Color.Red;
+                      i= Color.Blue;  
+                      break;
+            case Blue: color = Color.Blue;
+                       i= Color.Black;
+                       break;
+            case Black: color = Color.Black;
+                        i= Color.Yellow;
+                        break;
+            case Yellow: color = Color.Yellow;
+                         i= Color.Green;
+                         break;
+            case Green: color = Color.Green;
+                        i= Color.Grey;
+                        break;
+            case Grey: color = Color.Grey;
+                       i= Color.Orange;
+                       break;
+            case Orange: color = Color.Orange;
+                         i= Color.Red;
+                         break;
+            
+            
+        }
     }
 
     @Override
