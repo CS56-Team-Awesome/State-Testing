@@ -101,6 +101,7 @@ public class RunningState extends AbstractAppState {
         cam.setLocation(new Vector3f(0,0,50));
         stateManager.getState(RunningState.class).setEnabled(true);
         System.out.println("RunningState Initialized");
+        viewPort.setBackgroundColor(ColorRGBA.White);
         
         Node blockNode = new Node("blockNode");
         rootNode.attachChild(blockNode);
