@@ -5,6 +5,7 @@
 package com.teamawesome.testing;
 
 import com.jme3.export.Savable;
+import com.jme3.math.ColorRGBA;
 import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Spatial;
@@ -20,7 +21,7 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
     public enum BlockState {idleState, clearingState, killState, currentState, playState, explodeState, flashingState, countDownState};
     protected BlockState state;
     protected int points;
-    protected enum Color {Red, Blue, Black, Yellow, Green, Grey, Orange};
+    protected enum Color {Red, Blue, Black, Yellow, Green, Grey, Orange, Rainbow};
     protected Color color;
     
     static Color i = Color.Red;
@@ -48,9 +49,11 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
                        i= Color.Orange;
                        break;
             case Orange: color = Color.Orange;
+                         i= Color.Rainbow;
+                         break;
+            case Rainbow: color = Color.Rainbow;
                          i= Color.Red;
                          break;
-            
             
         }
     }

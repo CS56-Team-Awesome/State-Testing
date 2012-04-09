@@ -73,6 +73,8 @@ public class RunningState extends AbstractAppState {
                        break;
             case Orange: mat_stl.setColor("Color", ColorRGBA.Orange);
                          break;
+            case Rainbow: mat_stl.setColor("Color", ColorRGBA.Orange);
+                         break;
                
         }
         //Texture tex_ml = assetManager.loadTexture("Interface/background.png");
@@ -162,6 +164,16 @@ public class RunningState extends AbstractAppState {
     @Override
     public void update(float tpf) {
         super.update(tpf);
+        int i = 0;
+        Material m = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+        m.setColor("Color", ColorRGBA.randomColor());
+        Spatial bc = rootNode.getChild("Block"+i);
+        for (; (bc.getControl(BlockControl.class).color != Color.Rainbow); i++)
+        {
+            bc = rootNode.getChild("Block"+(i%10));
+        }
+        if (bc != null) bc.setMaterial(m);
+        i++;
     }
     
 }
