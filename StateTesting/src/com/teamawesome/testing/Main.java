@@ -11,6 +11,7 @@ import com.jme3.renderer.RenderManager;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
 import com.jme3.system.AppSettings;
+import com.jme3.system.JmeContext;
 
 /**
  * test
@@ -19,12 +20,26 @@ import com.jme3.system.AppSettings;
 public class Main extends SimpleApplication {
     
     public static void main(String[] args) {
+        
         Main app = new Main();
-        settings.
+        //app.setShowSettings(false);
+        //app.settings.setFullscreen(true);
         app.start();
     }
     
     
+    @Override
+    public void start(){
+        AppSettings settings = new AppSettings(true);
+        settings.setResolution(1440, 900);
+        settings.setTitle("BlockBlock");
+        settings.setFullscreen(true);
+        
+        //setShowSettings(false);
+        setSettings(settings);
+        
+        super.start();
+    }
 
     @Override
     public void simpleInitApp() {
@@ -40,6 +55,7 @@ public class Main extends SimpleApplication {
      
         stateManager.attach(new RunningState());
         stateManager.attach(new PausedState());
+        stateManager.getState(PausedState.class).setS(settings);
         
         
     }
