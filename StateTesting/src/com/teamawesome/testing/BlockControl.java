@@ -63,7 +63,7 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
     @Override
     protected void controlUpdate(float tpf) {
         if(spatial != null) {
-            spatial.rotate(tpf,tpf,tpf); 
+            spatial.rotate((tpf*2),(tpf*2),(tpf*2)); 
         }
         switch (state){
             case idleState:
