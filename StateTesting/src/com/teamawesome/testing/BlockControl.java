@@ -6,6 +6,7 @@ package com.teamawesome.testing;
 
 import com.jme3.export.Savable;
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.Vector3f;
 import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Spatial;
@@ -23,6 +24,8 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
     protected int points;
     protected enum Color {Red, Blue, Black, Yellow, Green, Grey, Orange, Rainbow};
     protected Color color;
+    protected float speed = 1;
+    protected boolean dropped = false;
     
     static Color i = Color.Red;
     
@@ -65,14 +68,18 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
 
     @Override
     protected void controlUpdate(float tpf) {
-        if(spatial != null) {
-            spatial.rotate((tpf*2),(tpf*2),(tpf*2)); 
-        }
         switch (state){
             case idleState:
+                if(spatial != null) {
+                    spatial.rotate((tpf*speed),(tpf*speed),(tpf*speed)); 
+                }
                 break;
             case playState:
+                if(spatial != null && !dropped) {
                 spatial.move(0,0,-50);
+                speed++;
+                dropped = true;
+                }
                 state = BlockState.idleState;
                 break;
         }
