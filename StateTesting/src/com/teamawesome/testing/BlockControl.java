@@ -71,8 +71,7 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
         switch (state){
             case idleState:
                 if(spatial != null) {
-                    spatial.rotate((tpf*speed),(tpf*speed),(tpf*speed)); 
-                    System.out.println(spatial.getParent().getChild(2));
+                    spatial.rotate((tpf*speed),(tpf*speed),(tpf*speed));
                 }
                 break;
             case playState:
