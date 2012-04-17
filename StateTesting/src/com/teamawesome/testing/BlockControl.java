@@ -77,9 +77,9 @@ public class BlockControl extends AbstractControl implements Savable, Cloneable{
             case playState:
                 if(spatial != null && !dropped) {
                 spatial.move(0,0,-50);
-                speed++;
                 dropped = true;
                 }
+                speed++;
                 state = BlockState.idleState;
                 break;
         }
