@@ -65,7 +65,6 @@ public class PausedState extends AbstractAppState {
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         if(enabled){
-            System.out.println("PausedState enabled");
             
             guiNode.detachAllChildren();
             Picture pic = new Picture("HUD Picture");
@@ -74,7 +73,7 @@ public class PausedState extends AbstractAppState {
             pic.setHeight(settings.getHeight()/2);
             pic.setPosition(settings.getWidth()/4, settings.getHeight()/4);
             guiNode.attachChild(pic);
-            
+            System.out.println("PausedState enabled");
 
         
         ActionListener actionListener = new ActionListener() {

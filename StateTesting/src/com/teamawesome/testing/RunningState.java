@@ -81,6 +81,7 @@ public class RunningState extends AbstractAppState {
         //mat_stl.setTexture("ColorMap", tex_ml);
        
         n.attachChild(cube);
+        //n.attachChildAt(cube, index);
         return cube;
         /*------------------------------------*/
     }
@@ -110,10 +111,12 @@ public class RunningState extends AbstractAppState {
         
         blockList = new ArrayList<Spatial>();
         for (int i =0; i < 10; i++){
-            blockList.add(makeCube(i, blockNode));
+            //blockList.add(
+            makeCube(i, blockNode);
         }
-        for (int i =0; i < blockList.size(); i++){
-            blockList.get(i).move(i+i, i+1, 50);
+        for (int i =0; i < blockNode.getQuantity(); i++){
+            //blockList.get(i).move(i+i, i+1, 50);
+            blockNode.getChild(i).move(i+i, i+1, 40);
         }
     }
 
@@ -131,8 +134,8 @@ public class RunningState extends AbstractAppState {
             
             public void onAction(String name, boolean keyPressed, float tpf) {
                  if ("Pause Game".equals(name) && !keyPressed) {
-                     RunningState.this.stateManager.getState(RunningState.class).setEnabled(false);
                      RunningState.this.stateManager.getState(PausedState.class).setEnabled(true);
+                     RunningState.this.stateManager.getState(RunningState.class).setEnabled(false);
                      System.out.println("RunningState disabled");
                      //rootNode.getChild("A Textured Box").setCullHint(CullHint.Always);
                      inputManager.removeListener(this);
