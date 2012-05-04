@@ -1,0 +1,19 @@
+Material My Material : Common/MatDefs/Light/Lighting.j3md {
+     MaterialParameters {
+        DiffuseMap : Textures/block_texture_blue_light.png
+        SpecularMap : Textures/block_texture_blue_light_alpha.png
+        WardIso : false
+        Minnaert : false
+        UseAlpha : false
+        HighQuality : false
+        VTangent : false
+        LATC : false
+        VertexLighting : false
+        UseVertexColor : false
+        UseMaterialColors : false
+        SeparateTexCoord : false
+     }
+    AdditionalRenderState {
+      Wireframe Off
+    }
+}
